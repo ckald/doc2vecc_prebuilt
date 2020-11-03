@@ -17,11 +17,8 @@ else:
     tokenize.detect_encoding = detect_encoding
 
 
-long_description = """
-## Unofficial prebuilt binary for Linux and MacOS
-The repo that builds this project can be found here:
-[https://github.com/ckald/doc2vecc_prebuilt](https://github.com/ckald/doc2vecc_prebuilt)
-"""
+with open("README.md") as f:
+    long_description = f.read()
 
 
 source_files = [
@@ -51,6 +48,7 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/mchen24/iclr2017',
     author='Chen, Minmin',
+    author_email='m.chen@criteo.com',
     license='BSD',
     setup_requires=['wheel'],
     scripts=['doc2vecc/doc2vecc'],
@@ -59,7 +57,7 @@ setup(
      'Programming Language :: Python :: 2.7',
      'Programming Language :: Python :: 3.5',
      'Programming Language :: Python :: 3.6',
-     'Programming Language :: Python :: 3.7'
+     'Programming Language :: Python :: 3.7',
      'Programming Language :: Python :: 3.8'
     ],
 )
