@@ -10,7 +10,7 @@ doc2vecc: doc2vecc/doc2vecc
 		gcc doc2vecc.c -o doc2vecc -lm -pthread -O3 -march=native -funroll-loops
 
 wheel: doc2vecc
-	python setup.py bdist_wheel
+	python setup.py sdist bdist_wheel
 
 clean:
 	rm -f doc2vecc/doc2vecc
