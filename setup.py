@@ -31,7 +31,7 @@ libraries = []
 
 ext = [
     Extension(
-        '*',
+        'doc2vecc',
         source_files,
         extra_compile_args=compile_opts,
         language='c++',
@@ -51,7 +51,6 @@ setup(
     author_email='m.chen@criteo.com',
     license='BSD',
     setup_requires=['wheel'],
-    scripts=['doc2vecc/doc2vecc'],
     zip_safe=False,
     classifiers=[
      'Programming Language :: Python :: 2.7',
