@@ -43,7 +43,7 @@ ext = [
 setup(
     name='doc2vecc_prebuilt',
     ext_modules=ext,
-    version='0.0.3',
+    version='0.0.4',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/mchen24/iclr2017',
