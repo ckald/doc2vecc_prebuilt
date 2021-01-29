@@ -30,13 +30,13 @@ jobs:
         cat <<EOF > setup.cfg
         [bdist_wheel]
         universal = false
-        plat-name=$(python -c "import distutils; print(distutils.util.get_platform().replace('.', '_').replace('-', '_').replace('linux', 'manylinux1'))")
+        plat-name=manylinux1_x86_64
         EOF
         cat setup.cfg
         make wheel
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: wheelhouse_linux_x86_64
+        name: wheelhouse_manylinux1_x86_64
         path: |
           dist/*.whl
