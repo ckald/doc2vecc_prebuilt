@@ -9,9 +9,10 @@ on:
   workflow_dispatch:
   
 env:
-  PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
-  PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-  PYPI_SERVER: ${{ secrets.PYPI_SERVER }}
+  TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+  TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+  TWINE_REPOSITORY_URL: ${{ secrets.PYPI_SERVER }}
+  TWINE_NON_INTERACTIVE: 1
 
 jobs:
   build-linux:
@@ -46,7 +47,7 @@ jobs:
           dist/*.whl
     - name: Upload to PyPi server
       run: |
-        rsync dist/*.whl ${PYPI_USERNAME}:${PYPI_PASSWORD}@${PYPI_SERVER}
+        twine upload dist/*
     
           
   build-mac:
@@ -75,4 +76,4 @@ jobs:
           dist/*.whl
     - name: Upload to PyPi server
       run: |
-        rsync dist/*.whl ${PYPI_USERNAME}:${PYPI_PASSWORD}@${PYPI_SERVER}
+        twine upload dist/*
