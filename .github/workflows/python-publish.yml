@@ -39,6 +39,10 @@ jobs:
         name: wheelhouse_manylinux1_x86_64
         path: |
           dist/*.whl
+    - name: Upload to PyPi server
+      run: |
+        rsync dist/*.whl ${PYPI_USERNAME}:${PYPI_PASSWORD}@${PYPI_SERVER}
+    
           
   build-mac:
     runs-on: macos-latest
@@ -64,3 +68,6 @@ jobs:
         name: wheelhouse_mac
         path: |
           dist/*.whl
+    - name: Upload to PyPi server
+      run: |
+        rsync dist/*.whl ${PYPI_USERNAME}:${PYPI_PASSWORD}@${PYPI_SERVER}
