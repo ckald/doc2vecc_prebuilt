@@ -12,7 +12,6 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest    
-    #container: quay.io/pypa/manylinux2014_x86_64
 
     steps:
     - uses: actions/checkout@v2
@@ -26,10 +25,12 @@ jobs:
       run: |
         pip install --no-cache-dir -U pip
         pip install setuptools wheel twine
-    - name: Build and publish
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+    - name: Build
       run: |
         python setup.py sdist bdist_wheel
-        twine upload dist/*
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: wheelhouse_linux_x86_64
+        path: |
+          dist/*.whl
