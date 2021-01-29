@@ -51,9 +51,9 @@ setup(
     author_email='m.chen@criteo.com',
     license='BSD',
     setup_requires=['wheel'],
+    scripts=['doc2vecc/doc2vecc'],
     zip_safe=False,
     classifiers=[
-     'Programming Language :: Python :: 2.7',
      'Programming Language :: Python :: 3.5',
      'Programming Language :: Python :: 3.6',
      'Programming Language :: Python :: 3.7',
