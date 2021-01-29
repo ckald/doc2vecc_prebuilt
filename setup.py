@@ -25,24 +25,9 @@ source_files = [
     'doc2vecc/doc2vecc.c',
 ]
 
-compile_opts = ['-lm', '-pthread', '-O3', '-march=native', '-funroll-loops']
-libraries = []
-
-
-ext = [
-    Extension(
-        'doc2vecc',
-        source_files,
-        extra_compile_args=compile_opts,
-        language='c++',
-        libraries=libraries,
-    )
-]
-
 
 setup(
     name='doc2vecc_prebuilt',
-    ext_modules=ext,
     version='0.0.4',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -54,7 +39,6 @@ setup(
     scripts=['doc2vecc/doc2vecc'],
     zip_safe=False,
     classifiers=[
-     'Programming Language :: Python :: 3.5',
      'Programming Language :: Python :: 3.6',
      'Programming Language :: Python :: 3.7',
      'Programming Language :: Python :: 3.8'
