@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --no-cache-dir -U pip
-        pip install distutils setuptools wheel twine
+        pip install setuptools wheel twine
     - name: Build
       run: |
         cat <<EOF > setup.cfg
