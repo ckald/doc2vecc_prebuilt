@@ -12,7 +12,7 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest    
-    container: quay.io/pypa/manylinux2014_x86_64
+    #container: quay.io/pypa/manylinux2014_x86_64
 
     steps:
     - uses: actions/checkout@v2
@@ -24,6 +24,7 @@ jobs:
         python-version: '3.6'
     - name: Install dependencies
       run: |
+        pip install --no-cache-dir -U pip
         pip install setuptools wheel twine
     - name: Build and publish
       env:
