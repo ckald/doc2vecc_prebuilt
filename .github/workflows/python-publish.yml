@@ -24,13 +24,13 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --no-cache-dir -U pip
-        pip install setuptools wheel twine
+        pip install distutils setuptools wheel twine
     - name: Build
       run: |
         cat <<EOF > setup.cfg
         [bdist_wheel]
         universal = false
-        plat-name=$(python -c "from wheel.pep425tags import get_platform; print(get_platform().replace('linux', 'manylinux1'))")
+        plat-name=$(python -c "import distutils; print(distutils.util.get_platform().replace('.', '_').replace('-', '_').replace('linux', 'manylinux1'))")
         EOF
         cat setup.cfg
         make wheel
