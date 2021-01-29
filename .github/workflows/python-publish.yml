@@ -7,6 +7,11 @@ on:
   release:
     types: [created]
   workflow_dispatch:
+  
+env:
+  PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+  PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+  PYPI_SERVER: ${{ secrets.PYPI_SERVER }}
 
 jobs:
   build-linux:
